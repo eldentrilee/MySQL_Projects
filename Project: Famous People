@@ -1,0 +1,55 @@
+/*
+
+1. Retrieve Game of Thrones male stars who are married to another Game of Thrones female stars by querying two tables.
+
+2. Retrieve Game of Thrones actors who are also professional recording artists (singers) by querying three tables.
+
+*/
+
+CREATE TABLE GOTStarsM (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, character TEXT, spouse TEXT);
+
+INSERT into GOTStarsM (name, character, spouse) VALUES ("Kit Harrington", "John Snow", "Rose Leslie");
+INSERT into GOTStarsM (name, character, spouse) VALUES ("Peter Dinklage", "Tyrion Lannister", "Erica Schmidt");
+INSERT into GOTStarsM (name, character, spouse) VALUES ("Jason Mamoa", "Khal Drogo", "Lisa Bonet");
+INSERT into GOTStarsM (name, character, spouse) VALUES ("Aidan Gillen", "Petyr Baelish", "Camille O'Sullivan");
+INSERT into GOTStarsM (name, character, spouse) VALUES ("Kristofer Hivju", "Tormund Giantsbane", "Gry Molvaer Hivju");
+
+CREATE TABLE GOTStarsF (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, character TEXT, spouse TEXT);
+
+INSERT into GOTStarsF (name, character, spouse) VALUES ("Emilia Clarke", "Daenerys Targaryen", null);
+INSERT into GOTStarsF (name, character, spouse) VALUES ("Sophie Turner", "Sansa Clarke", null);
+INSERT into GOTStarsF (name, character, spouse) VALUES ("Maisie Williams", "Arya Stark", null);
+INSERT into GOTStarsF (name, character, spouse) VALUES ("Rose Leslie", "Ygritte", "Kit Harrington");
+INSERT into GOTStarsF (name, character, spouse) VALUES ("Carice Van Houten", "Melisandre", "Guy Pearce");
+
+CREATE TABLE ActorSingers (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, recordlabel TEXT);
+
+INSERT into ActorSingers (name, recordlabel) VALUES ("Carice Van Houten", "EMI");
+INSERT into ActorSingers (name, recordlabel) VALUES ("Justin Timberlake", "RCA");
+INSERT into ActorSingers (name, recordlabel) VALUES ("Jennifer Hudson", "Epic");
+INSERT into ActorSingers (name, recordlabel) VALUES ("Keanu Reeves", "Ultimatum");
+INSERT into ActorSingers (name, recordlabel) VALUES ("Austin Butler", "Hollywood");
+
+
+SELECT * FROM GOTStarsM;
+SELECT * FROM GOTStarsF;
+SELECT * FROM ActorSingers;
+
+SELECT GOTStarsM.name as "Male Actor", GOTStarsM.character as "Male Show Character",  GOTStarsF.name as "Real Life Female Actor Spouse from same show", GOTStarsF.character as "Female Show Character" FROM GOTStarsM
+	INNER JOIN GOTStarsF
+	ON GOTStarsM.name = GOTStarsF.spouse;
+
+SELECT 
+
+  GOTStarsM.name, 
+  GOTStarsF.name as "Actor/Singer",
+  ActorSingers.recordlabel as "Recording Label"
+ FROM ActorSingers
+ 
+    INNER JOIN GOTStarsF 
+    ON GOTStarsf.name = ActorSingers.name 
+    LEFT JOIN GOTStarsm 
+    ON GOTStarsM.name = ActorSingers.name;
+    
+    
+ 

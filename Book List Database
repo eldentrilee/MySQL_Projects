@@ -1,0 +1,17 @@
+/* What are your favorite books? You can make a database table to store them in! In this first step, create a table to store your list of books. It should have columns for id, name, and rating.
+*/
+
+/* Create a table with 3 columns */
+CREATE TABLE booklist (id INTEGER PRIMARY KEY, name TEXT, rating INTEGER);
+
+/* Add 3 books into the table */
+INSERT INTO booklist VALUES (1, "Moby Dick", 5);
+INSERT INTO booklist VALUES (2, "The Notebook", 8);
+INSERT INTO booklist VALUES (3, "The Stand", 10);
+
+
+SELECT * from booklist;
+
+/* Select movies released after the year 2000 and sort by release year */
+
+SELECT * FROM movies WHERE release_year > 2000 ORDER by release_year;

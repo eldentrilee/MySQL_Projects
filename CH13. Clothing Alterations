@@ -1,0 +1,35 @@
+/* Table of Clothes, type and design */
+
+CREATE TABLE clothes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT,
+    design TEXT);
+    
+INSERT INTO clothes (type, design)
+    VALUES ("dress", "pink polka dots");
+INSERT INTO clothes (type, design)
+    VALUES ("pants", "rainbow tie-dye");
+INSERT INTO clothes (type, design)
+    VALUES ("blazer", "black sequin");
+
+/* There is no price column in the table, which would be quite useful. Add a price column to the table */
+
+ALTER TABLE clothes ADD price integer;
+SELECT * FROM clothes;
+
+/* Add prices to each item in the database */ 
+
+UPDATE clothes SET price = 10
+WHERE id = 1;
+UPDATE clothes SET price = 20
+WHERE id = 2;
+UPDATE clothes SET price = 30
+WHERE id = 3;
+
+SELECT * from clothes;
+
+/* Add an item with type, design, and price to the database */
+
+INSERT INTO clothes (type, design, price)
+VALUES ("Shorts", "long", 56);
+SELECT * from clothes;

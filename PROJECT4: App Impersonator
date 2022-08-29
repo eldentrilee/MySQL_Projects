@@ -1,0 +1,71 @@
+/* Database of active Major League Baseball Position Players */
+
+CREATE TABLE MLBPlayers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    First TEXT,
+    Last TEXT,
+    UNum INTEGER,
+    Team TEXT);
+    
+    CREATE TABLE MLBStats (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    HRS INTEGER,
+    RBI INTEGER,
+    SB INTEGER,
+    School TEXT );
+
+INSERT INTO MLBPlayers (First, Last, Unum, Team) VALUES ("Mike", "Trout", 27, "California Angels");
+INSERT INTO MLBPlayers (First, Last, Unum, Team) VALUES ("Aaron", "Judge", 66, "New York Yankees");
+INSERT INTO MLBPlayers (First, Last, Unum, Team) VALUES ("Mookie", "Betts", 50, "Boston Red Sox");
+INSERT INTO MLBPlayers (First, Last, Unum, Team) VALUES ("Vladimir", "Guerrero Jr", 27, "Toronto Blue Jays");
+INSERT INTO MLBPlayers (First, Last, Unum, Team) VALUES ("Buster", "Posey", 28, "San Francisco Giants");
+INSERT INTO MLBPlayers (First, Last, Unum, Team) VALUES ("Todd", "Frazier", 99, "Pittsburgh Pirates");
+
+/* Table of MLB corresponding Statistics */
+   
+INSERT INTO MLBStats (HRS, RBI, SB, School) VALUES (55, 170, 52, "Millville Senior HS");
+INSERT INTO MLBStats (HRS, RBI, SB, School) VALUES (75, 142, 37, "CSU Fresno State");
+INSERT INTO MLBStats (HRS, RBI, SB, School) VALUES (41, 129, 33, "Overton HS");
+INSERT INTO MLBStats (HRS, RBI, SB, School) VALUES (55, 170, 52, "Santo Domingo HS");
+INSERT INTO MLBStats (HRS, RBI, SB, School) VALUES (7, 29, 1, "Florida State University");
+INSERT INTO MLBStats (HRS, RBI, SB, School) VALUES (5, 17, 12, "Rutgers University");
+
+SELECT * FROM MLBPlayers;
+
+/* A player was traded to another team.  His team value must be updated.   */
+
+UPDATE MLBPlayers SET Team = "Los Angeles Dodgers" WHERE id = 3;
+
+SELECT * FROM MLBPlayers;
+
+/* Retrieve MLB players who went to school at Rugers */
+
+SELECT * FROM MLBStats WHERE school LIKE "Rutgers%";
+
+SELECT * FROM MLBPlayers;
+
+/* Retrieve MLB players who hit less than 30 home runs */
+
+SELECT * FROM MLBStats WHERE MLBStats.HRS < 30;
+
+SELECT * FROM MLBPlayers;
+
+/* Some players have recently retired.  As they are no longer active, they must be deleted from the database */
+
+DELETE MLBPLayers, MLBStats
+FROM MLBPlayers
+  INNER JOIN MLBStats ON MLBPlayers.id = MLBStats.id
+  WHERE MLBPlayers.First = "Todd" AND MLBPlayers.Last = "Frazier";
+
+SELECT * FROM MLBPlayers;
+
+DELETE MLBPlayers, MLBStats
+
+  FROM MLBPlayers
+   INNER JOIN MLBStats ON MLBPlayers.id = MLBStats.id
+  WHERE MLBPlayers.First = "Buster" AND MLBPlayers.Last = "Posey";
+
+/* Show the updated list */ 
+
+SELECT * FROM MLBPlayers;
+SELECT * FROM MLBStats;

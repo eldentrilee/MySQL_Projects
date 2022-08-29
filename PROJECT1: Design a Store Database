@@ -1,0 +1,91 @@
+/* Create a store database with 15+ items and at least 1 unique statistic, use select statement to group your items by price */
+
+/* Jewelry Catalog */
+
+CREATE TABLE jewelry 
+(id INTEGER PRIMARY KEY, 
+name TEXT, 
+style TEXT, 
+color TEXT,
+qty INTEGER, 
+cost INTEGER, 
+msrp INTEGER, 
+supplier TEXT);
+
+/* Bracelets */
+
+INSERT into jewelry VALUES (1, "Cuff", "Polished", "Gold", 2, 3.2, 20, "Zorcvens");
+INSERT into jewelry VALUES (2, "Cuff", "Polished", "Rose Gold", 1, 3.2, 20, "Zorcvens");
+INSERT into jewelry VALUES (3, "Cuff", "Squared", "Gold", 1, 3, 20, "Zorcvens");
+INSERT into jewelry VALUES (4, "Bracelet", "Polished", "Rose Gold", 1, 3.65, 21, "Borasi");
+INSERT into jewelry VALUES (5, "Bracelet", "Polished", "Silver", 1, 3.65, 21, "Borasi");
+INSERT into jewelry VALUES (6, "Bracelet", "Rose Pattern", "Gold", 1, 4.35, 23, "Borasi");
+INSERT into jewelry VALUES (7, "Bracelet", "Rose Pattern", "Silver", 1, 4.35, 23, "Borasi");
+
+/* Rings */
+
+INSERT into jewelry (name, style, color, qty, cost, msrp)
+VALUES ("Ring", "Plain", "Gold", 25, 4, 23);
+INSERT into jewelry (name, style, color, qty, cost, msrp)
+VALUES ("Ring", "Plain", "Silver", 25, 3, 20);
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Ring", "Solitaire", "White Gold", 25, 5, 20, "YHAMNI");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Ring", "Criss Cross", "Silver", 250, 5, 35, "YHAMNI");
+INSERT into jewelry (name, style, color, qty, cost, msrp)
+VALUES ("Ring", "Plain", "Rose Gold", 25, 3, 20);
+
+/* Necklaces */
+
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Necklace", "Cross", "Gold", 25, 4.5, 25, "ZORCVENS");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Necklace", "Cross", "Silver", 25, 4, 23, "ZORCVENS");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Necklace", "Gothic Cross", "Silver", 25, 4, 23, "ZORCVENS");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Necklace", "Arabic", "Gold", 25, 5, 35, "ZORCVENS");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Necklace", "Arabic", "Silver", 25, 4, 23, "ZORCVENS");
+
+/* Pendants */
+
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Cross", "Rose Gold", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Cross", "Silver", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Star of David", "Silver", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Star of David", "Rose Gold", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Star of David", "Silver", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Barrel", "Rose Gold", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Barrel", "Silver", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Barrel", "Gold", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Compass", "Silver", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Compass", "Rose Gold", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Compass", "Gold", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Heart", "Gold", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Heart", "Silver", 25, 3, 20, "");
+INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
+VALUES ("Charm", "Heart", "Rose Gold", 25, 3, 20, "");
+
+
+SELECT * FROM jewelry;
+
+/* Order items by price */
+
+SELECT * FROM jewelry ORDER by msrp;
+
+/* Order items by quantity */
+
+SELECT name, SUM(qty) FROM jewelry GROUP by name;

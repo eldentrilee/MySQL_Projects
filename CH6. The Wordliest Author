@@ -5,7 +5,9 @@ CREATE TABLE books (
     author TEXT,
     title TEXT,
     words INTEGER);
-    
+
+-- Insert authors, books and word count into books database
+
 INSERT INTO books (author, title, words)
     VALUES ("J.K. Rowling", "Harry Potter and the Philosopher's Stone", 79944);
 INSERT INTO books (author, title, words)

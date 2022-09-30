@@ -4,13 +4,15 @@ CREATE TABLE customers (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
     email TEXT);
-    
+
+/* Add Customer names and their email addresses */
+
 INSERT INTO customers (name, email) VALUES ("Doctor Who", "doctorwho@timelords.com");
 INSERT INTO customers (name, email) VALUES ("Harry Potter", "harry@potter.com");
 INSERT INTO customers (name, email) VALUES ("Captain Awesome", "captain@awesome.com");
 
 
-/* Table of Orders */
+/* Create Table of Orders with corresponding customer id's, item ordered, and price */
 
 CREATE TABLE orders (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

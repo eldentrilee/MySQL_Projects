@@ -7,12 +7,9 @@ CREATE TABLE MLBPlayers (
     UNum INTEGER,
     Team TEXT);
     
-    CREATE TABLE MLBStats (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    HRS INTEGER,
-    RBI INTEGER,
-    SB INTEGER,
-    School TEXT );
+
+    
+-- Add players by name, age, and team name    
 
 INSERT INTO MLBPlayers (First, Last, Unum, Team) VALUES ("Mike", "Trout", 27, "California Angels");
 INSERT INTO MLBPlayers (First, Last, Unum, Team) VALUES ("Aaron", "Judge", 66, "New York Yankees");
@@ -21,8 +18,15 @@ INSERT INTO MLBPlayers (First, Last, Unum, Team) VALUES ("Vladimir", "Guerrero J
 INSERT INTO MLBPlayers (First, Last, Unum, Team) VALUES ("Buster", "Posey", 28, "San Francisco Giants");
 INSERT INTO MLBPlayers (First, Last, Unum, Team) VALUES ("Todd", "Frazier", 99, "Pittsburgh Pirates");
 
-/* Table of MLB corresponding Statistics */
-   
+/* Create Table of MLB player's corresponding Statistics: home runs, RBI, stolen bases, and school they were drafted from */
+
+CREATE TABLE MLBStats (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    HRS INTEGER,
+    RBI INTEGER,
+    SB INTEGER,
+    School TEXT );
+    
 INSERT INTO MLBStats (HRS, RBI, SB, School) VALUES (55, 170, 52, "Millville Senior HS");
 INSERT INTO MLBStats (HRS, RBI, SB, School) VALUES (75, 142, 37, "CSU Fresno State");
 INSERT INTO MLBStats (HRS, RBI, SB, School) VALUES (41, 129, 33, "Overton HS");
@@ -32,7 +36,7 @@ INSERT INTO MLBStats (HRS, RBI, SB, School) VALUES (5, 17, 12, "Rutgers Universi
 
 SELECT * FROM MLBPlayers;
 
-/* A player was traded to another team.  His team value must be updated.   */
+/* Situation: A player was traded to another team.  His team value must be updated.   */
 
 UPDATE MLBPlayers SET Team = "Los Angeles Dodgers" WHERE id = 3;
 
@@ -52,6 +56,8 @@ SELECT * FROM MLBPlayers;
 
 /* Some players have recently retired.  As they are no longer active, they must be deleted from the database */
 
+-- Todd Frazier has retired, so he will be removed from the database
+
 DELETE MLBPLayers, MLBStats
 FROM MLBPlayers
   INNER JOIN MLBStats ON MLBPlayers.id = MLBStats.id
@@ -59,13 +65,15 @@ FROM MLBPlayers
 
 SELECT * FROM MLBPlayers;
 
+# Buster Posey has also retired, so he will need to be removed from the database
+
 DELETE MLBPlayers, MLBStats
 
   FROM MLBPlayers
    INNER JOIN MLBStats ON MLBPlayers.id = MLBStats.id
   WHERE MLBPlayers.First = "Buster" AND MLBPlayers.Last = "Posey";
 
-/* Show the updated list */ 
+/* Now Show the updated tables from both Players and Stats with both retired players and their stats removed */ 
 
 SELECT * FROM MLBPlayers;
 SELECT * FROM MLBStats;

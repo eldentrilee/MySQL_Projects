@@ -1,5 +1,8 @@
 /* Database of marvel superheroes characters and their statistics */
 
+# Table with marvel character names, their popularity score, good/bad alignment, gender, height, weight, home town, intelligence, strength, speed, durability, energy projection, and fighting skills ratings
+
+
 CREATE TABLE marvels (ID INTEGER PRIMARY KEY,
     name TEXT,
     popularity INTEGER,

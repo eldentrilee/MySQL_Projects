@@ -1,9 +1,11 @@
-/* Table of movies */
+/* Create Table of movies */
 
 CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
     released INTEGER,
     sequel_id INTEGER);
+
+# Add movie titles and release year into movies database
 
 INSERT INTO movies 
     VALUES (1, "Harry Potter and the Philosopher's Stone", 2001, 2);

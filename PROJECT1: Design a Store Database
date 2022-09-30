@@ -1,6 +1,6 @@
 /* Create a store database with 15+ items and at least 1 unique statistic, use select statement to group your items by price */
 
-/* Jewelry Catalog */
+/* Jewelry Catalog with columns of product name, style, color, quantity, cost, msrp, and supplier */
 
 CREATE TABLE jewelry 
 (id INTEGER PRIMARY KEY, 
@@ -12,7 +12,7 @@ cost INTEGER,
 msrp INTEGER, 
 supplier TEXT);
 
-/* Bracelets */
+/* Add Bracelets */
 
 INSERT into jewelry VALUES (1, "Cuff", "Polished", "Gold", 2, 3.2, 20, "Zorcvens");
 INSERT into jewelry VALUES (2, "Cuff", "Polished", "Rose Gold", 1, 3.2, 20, "Zorcvens");
@@ -22,7 +22,7 @@ INSERT into jewelry VALUES (5, "Bracelet", "Polished", "Silver", 1, 3.65, 21, "B
 INSERT into jewelry VALUES (6, "Bracelet", "Rose Pattern", "Gold", 1, 4.35, 23, "Borasi");
 INSERT into jewelry VALUES (7, "Bracelet", "Rose Pattern", "Silver", 1, 4.35, 23, "Borasi");
 
-/* Rings */
+/* Add Rings */
 
 INSERT into jewelry (name, style, color, qty, cost, msrp)
 VALUES ("Ring", "Plain", "Gold", 25, 4, 23);
@@ -35,7 +35,7 @@ VALUES ("Ring", "Criss Cross", "Silver", 250, 5, 35, "YHAMNI");
 INSERT into jewelry (name, style, color, qty, cost, msrp)
 VALUES ("Ring", "Plain", "Rose Gold", 25, 3, 20);
 
-/* Necklaces */
+/* Add Necklaces */
 
 INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
 VALUES ("Necklace", "Cross", "Gold", 25, 4.5, 25, "ZORCVENS");
@@ -48,7 +48,7 @@ VALUES ("Necklace", "Arabic", "Gold", 25, 5, 35, "ZORCVENS");
 INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
 VALUES ("Necklace", "Arabic", "Silver", 25, 4, 23, "ZORCVENS");
 
-/* Pendants */
+/* Add Pendants */
 
 INSERT into jewelry (name, style, color, qty, cost, msrp, supplier)
 VALUES ("Charm", "Cross", "Rose Gold", 25, 3, 20, "");
@@ -86,6 +86,6 @@ SELECT * FROM jewelry;
 
 SELECT * FROM jewelry ORDER by msrp;
 
-/* Order items by quantity */
+/* Order items by name while showing quantity */
 
 SELECT name, SUM(qty) FROM jewelry GROUP by name;

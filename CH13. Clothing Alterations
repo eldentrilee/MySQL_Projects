@@ -4,7 +4,9 @@ CREATE TABLE clothes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     type TEXT,
     design TEXT);
-    
+
+# Add clothing type and specified design into database
+
 INSERT INTO clothes (type, design)
     VALUES ("dress", "pink polka dots");
 INSERT INTO clothes (type, design)

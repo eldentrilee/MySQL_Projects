@@ -1,5 +1,7 @@
 /* Database of friends networking site with friend's names, hobbies, and friend connection */
 
+# Create a table called persons and insert full name and ages into the table
+
 CREATE TABLE persons (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     fullname TEXT,
@@ -10,6 +12,8 @@ INSERT INTO persons (fullname, age) VALUES ("Lucy BoBucie", "25");
 INSERT INTO persons (fullname, age) VALUES ("Banana FoFanna", "14");
 INSERT INTO persons (fullname, age) VALUES ("Shish Kabob", "20");
 INSERT INTO persons (fullname, age) VALUES ("Fluffy Sparkles", "8");
+
+# Create a table called hobbies and insert hobbies which correspond with the id of the name in the persons table
 
 CREATE table hobbies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -26,6 +30,8 @@ INSERT INTO hobbies (person_id, name) VALUES (3, "drawing");
 INSERT INTO hobbies (person_id, name) VALUES (4, "coding");
 INSERT INTO hobbies (person_id, name) VALUES (4, "dilly-dallying");
 INSERT INTO hobbies (person_id, name) VALUES (4, "meowing");
+
+# Create table of friends and insert matching friend names with id's corresponding to the persons table
 
 CREATE table friends (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -1,4 +1,4 @@
-/* Create a book list table */
+/* Create a book list table and insert books into the database */
 
 CREATE TABLE booklist (id INTEGER PRIMARY KEY, name TEXT, rating INTEGER);
 

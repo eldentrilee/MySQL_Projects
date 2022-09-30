@@ -1,6 +1,6 @@
-/* Database of famous people with attributes.  */
+/* Three Databases of famous people with their attributes.  */
 
-/* Male stars of GAme of Thrones TV show */
+/* Game of Thrones TV show Male stars, character name, and real-life spouse  */
 
 CREATE TABLE GOTStarsM (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, character TEXT, spouse TEXT);
 
@@ -10,7 +10,7 @@ INSERT into GOTStarsM (name, character, spouse) VALUES ("Jason Mamoa", "Khal Dro
 INSERT into GOTStarsM (name, character, spouse) VALUES ("Aidan Gillen", "Petyr Baelish", "Camille O'Sullivan");
 INSERT into GOTStarsM (name, character, spouse) VALUES ("Kristofer Hivju", "Tormund Giantsbane", "Gry Molvaer Hivju");
 
-/* Female stars of Game of Thrones Television show */
+/* Game of Thrones Female stars, character name, and real life spouse */
 
 CREATE TABLE GOTStarsF (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, character TEXT, spouse TEXT);
 
@@ -20,7 +20,7 @@ INSERT into GOTStarsF (name, character, spouse) VALUES ("Maisie Williams", "Arya
 INSERT into GOTStarsF (name, character, spouse) VALUES ("Rose Leslie", "Ygritte", "Kit Harrington");
 INSERT into GOTStarsF (name, character, spouse) VALUES ("Carice Van Houten", "Melisandre", "Guy Pearce");
 
-/* List of actors who are also recording artists */
+/* List of actors who are also recording artists and their record studio */
 
 CREATE TABLE ActorSingers (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, recordlabel TEXT);
 
@@ -35,13 +35,13 @@ SELECT * FROM GOTStarsM;
 SELECT * FROM GOTStarsF;
 SELECT * FROM ActorSingers;
 
-/* Select male actors who are married in real life to female actors from the show Game of Thrones */
+/* Select male GOT actors who are married in real life to female actors from the show Game of Thrones */
 
 SELECT GOTStarsM.name as "Male Actor", GOTStarsM.character as "Male Show Character",  GOTStarsF.name as "Real Life Female Actor Spouse from same show", GOTStarsF.character as "Female Show Character" FROM GOTStarsM
 	INNER JOIN GOTStarsF
 	ON GOTStarsM.name = GOTStarsF.spouse;
 
-/* Select male and/or female actors from the TV show Game of Thrones who are also recording artists */
+/* Select male and/or female actors from the TV show Game of Thrones who are also actual recording artists */
 
 SELECT 
 

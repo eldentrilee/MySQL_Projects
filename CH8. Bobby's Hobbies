@@ -1,15 +1,20 @@
 /* Table of people and hobbies in relation to each other.  */
 
+
 CREATE TABLE persons (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
     age INTEGER);
-    
+
+-- Insert into persons database some names and ages of people
+
 INSERT INTO persons (name, age) VALUES ("Bobby McBobbyFace", 12);
 INSERT INTO persons (name, age) VALUES ("Lucy BoBucie", 25);
 INSERT INTO persons (name, age) VALUES ("Banana FoFanna", 14);
 INSERT INTO persons (name, age) VALUES ("Shish Kabob", 20);
 INSERT INTO persons (name, age) VALUES ("Fluffy Sparkles", 8);
+
+-- Create hobbies database and insert hobbies in releation to id of persons database
 
 CREATE table hobbies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
